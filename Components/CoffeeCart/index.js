@@ -21,7 +21,7 @@ class CoffeeCart extends Component {
     ]
   };
   render() {
-    let items = this.state.items;
+    let items = this.props.items;
     let cartItems;
     if (items) {
       cartItems = items.map((item, index) => (
@@ -41,8 +41,7 @@ class CoffeeCart extends Component {
 }
 const mapStateToProps = state => {
   return {
-    coffeeShops: state.coffeeReducer.coffeeShops,
-    loading: state.coffeeReducer.loading
+    items: state.cartReducer.items
   };
 };
 export default connect(mapStateToProps)(CoffeeCart);
