@@ -39,8 +39,8 @@ class CoffeeItem extends Component {
 }
 const mapStateToProps = state => {
   return {
-    coffeeShops: state.cartReducer,
-    loading: state.coffeeReducer
+    coffeeShops: state.coffeeReducer.coffeeShops,
+    loading: state.coffeeReducer.loading
   };
 };
 export default connect(mapStateToProps)(CoffeeItem);

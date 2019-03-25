@@ -5,7 +5,7 @@ import { Text, Left, Body, Right, Button, ListItem, Icon } from "native-base";
 
 class CartItem extends Component {
   render() {
-    const { item } = this.props;
+    const { item } = this.props.items;
     return (
       <ListItem style={{ borderBottomWidth: 0 }}>
         <Left>
@@ -28,8 +28,7 @@ class CartItem extends Component {
 }
 const mapStateToProps = state => {
   return {
-    coffeeShops: state.cartReducer,
-    loading: state.coffeeReducer
+    items: state.cartReducer.items
   };
 };
 export default connect(mapStateToProps)(CartItem);
