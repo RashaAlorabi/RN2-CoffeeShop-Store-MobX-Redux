@@ -39,8 +39,10 @@ class CoffeeDetail extends Component {
   };
 
   render() {
-    if (!coffeeshops) return <Content />;
-    const coffeeshop = coffeeshops[0];
+    const { coffeeShops, loading } = this.props.coffeeReducer;
+    if (loading) return <Content />;
+    // const coffeeshop = this.props.coffeeShops[0];
+    const coffeeshop = coffeeShops[0];
     return (
       <Content>
         <List>
@@ -95,8 +97,9 @@ class CoffeeDetail extends Component {
 
 const mapStateToProps = state => {
   return {
-    coffeeShops: state.coffeeReducer.coffeeShops,
-    loading: state.coffeeReducer.loading
+    // coffeeShops: state.coffeeReducer.coffeeShops,
+    // loading: state.coffeeReducer.loading
+    coffeeReducer: state.coffeeReducer
   };
 };
 export default connect(mapStateToProps)(CoffeeDetail);

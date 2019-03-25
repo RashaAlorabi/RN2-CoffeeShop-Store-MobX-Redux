@@ -6,20 +6,6 @@ import { Text, List, Button } from "native-base";
 import CartItem from "./CartItem";
 
 class CoffeeCart extends Component {
-  state = {
-    items: [
-      {
-        drink: "Latte",
-        option: "Small",
-        quantity: 2
-      },
-      {
-        drink: "Espresso",
-        option: "Large",
-        quantity: 1
-      }
-    ]
-  };
   render() {
     let items = this.props.items;
     let cartItems;

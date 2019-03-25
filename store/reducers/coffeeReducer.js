@@ -1,4 +1,4 @@
-import * as types from "../actions/types";
+import * as actiontypes from "../actions/types";
 const initialState = {
   coffeeShops: [],
   loading: true
@@ -6,14 +6,14 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.GET_COFFEESHOPS:
+    case actiontypes.GET_COFFEESHOPS:
       return {
         ...state,
-        coffeeShops: this.state.concate(action.payload),
+        coffeeShops: action.payload,
         loading: false
       };
 
-    case types.COFFEESHOPS_LOADING:
+    case actiontypes.COFFEESHOPS_LOADING:
       return {
         ...state,
         loading: true

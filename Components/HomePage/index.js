@@ -14,31 +14,33 @@ import CoffeeDetail from "../CoffeeDetail";
 import Login from "../Login";
 
 import * as actionCreators from "../../store/actions/coffeeActions";
-
+// Action
+import { getCoffeeShops } from "../../store/actions/coffeeActions";
 class HomePage extends Component {
+  componentDidMount() {
+    this.props.getCoffeeShops();
+  }
   render() {
     return (
       <Container style={styles.transparent}>
         <View style={styles.overlay} />
         <Header style={styles.transparent} />
-        <CoffeeCart />
+        {/* <CoffeeCart /> */}
+        {/* <CoffeeDetail /> */}
+        <CoffeeList />
       </Container>
     );
   }
 }
-const mapStateToProps = state => {
-  return {
-    coffeeShops: state.coffeeReducer.coffeeShops,
-    loading: state.coffeeReducer.loading
-  };
-};
+
 const mapDispatchToProps = dispatch => {
   return {
-    getCoffeeShops: () => dispatch(actionCreators.getCoffeeShops())
+    // getCoffeeShops: () => dispatch(actionCreators.getCoffeeShops())
+    getCoffeeShops: () => dispatch(getCoffeeShops())
   };
 };
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(HomePage);

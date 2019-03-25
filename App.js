@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { Spinner } from "native-base";
 
-import CoffeeDetail from "./Components/CoffeeDetail";
-import CoffeeList from "./Components/CoffeeList";
 import HomePage from "./Components/HomePage";
-import CoffeeCart from "./Components/CoffeeCart";
+
 import store from "./store";
 import { Provider } from "react-redux";
+
 export default class App extends Component {
   state = {
     loading: true
@@ -27,9 +26,6 @@ export default class App extends Component {
     return (
       <Provider store={store}>
         <HomePage />
-        {/* <CoffeeList />
-        <CoffeeDetail />
-        <CoffeeCart /> */}
       </Provider>
     );
   }

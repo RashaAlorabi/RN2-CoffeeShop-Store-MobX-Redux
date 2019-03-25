@@ -1,24 +1,19 @@
-import * as types from "./types";
+import * as actiontypes from "./types";
 
 import axios from "axios";
 
-const instance = axios.create({
-  baseURL: "http://coffee.q8fawazo.me/"
-});
-
-const setCoffeeShopsLoading = () => ({
-  type: types.COFFEESHOPS_LOADING
+export const setCoffeeShopsLoading = () => ({
+  type: actiontypes.COFFEESHOPS_LOADING
 });
 
 export const getCoffeeShops = () => {
   return async dispatch => {
     dispatch(setCoffeeShopsLoading());
     try {
-      const res = await instance.get("api/?format=json");
+      const res = await axios.get("http://coffee.q8fawazo.me/api/?format=json");
       const CoffeeShops = res.data;
-
       dispatch({
-        type: types.GET_COFFEESHOPS,
+        type: actiontypes.GET_COFFEESHOPS,
         payload: CoffeeShops
       });
     } catch (error) {
