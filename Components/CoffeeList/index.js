@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { connect } from "react-redux";
 // NativeBase Components
 import { List, Content } from "native-base";
 
@@ -24,5 +24,10 @@ class CoffeeList extends Component {
     );
   }
 }
-
+const mapStateToProps = state => {
+  return {
+    coffeeShops: state.cartReducer,
+    loading: state.coffeeReducer
+  };
+};
 export default CoffeeList;

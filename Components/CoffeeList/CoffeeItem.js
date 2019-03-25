@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { ImageBackground, View } from "react-native";
-
+import { connect } from "react-redux";
 // NativeBase Components
 import { ListItem, Card, CardItem, Thumbnail, Text, Left } from "native-base";
 
@@ -37,5 +37,10 @@ class CoffeeItem extends Component {
     );
   }
 }
-
-export default CoffeeItem;
+const mapStateToProps = state => {
+  return {
+    coffeeShops: state.cartReducer,
+    loading: state.coffeeReducer
+  };
+};
+export default connect(mapStateToProps)(CoffeeItem);

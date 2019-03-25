@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View } from "react-native";
-
+import { connect } from "react-redux";
 // NativeBase Components
 import { Container, Header } from "native-base";
 
@@ -13,6 +13,8 @@ import CoffeeCart from "../CoffeeCart";
 import CoffeeDetail from "../CoffeeDetail";
 import Login from "../Login";
 
+import * as actionCreators from "../../store/actions/coffeeActions";
+
 class HomePage extends Component {
   render() {
     return (
@@ -24,5 +26,19 @@ class HomePage extends Component {
     );
   }
 }
+const mapStateToProps = state => {
+  return {
+    coffeeShops: state.cartReducer,
+    loading: state.coffeeReducer
+  };
+};
+const mapDispatchToProps = dispatch => {
+  return {
+    getCoffeeShops: () => dispatch(actionCreators.getCoffeeShops())
+  };
+};
 
-export default HomePage;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HomePage);
